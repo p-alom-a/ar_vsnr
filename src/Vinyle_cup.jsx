@@ -37,7 +37,7 @@ export default function App()
                 position="0 0 0"
                 scale="0.4 0.4 0.4"
                 src="#vinyleModel"
-                animation="property: rotation; to: 0 0 -360; loop: true; dur: 8000; easing: linear"
+                animation="property: rotation; to:0 0 -360; loop: true; dur: 8000; easing: linear"
                 ></a-gltf-model>
 
 
