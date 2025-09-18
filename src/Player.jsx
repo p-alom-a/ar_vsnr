@@ -45,7 +45,7 @@ const Player = ({
         display: 'flex',
         alignItems: 'center',
         gap: '12px',
-        maxWidth: '350px',
+        maxWidth: '300px',
         width: 'fit-content',
         minWidth: 'auto',
         transition: 'all 0.1s ease'
@@ -76,7 +76,12 @@ const Player = ({
           outline: 'none'
         }}
       >
-        {isPlaying ? '⏸' : '▶'}
+{isPlaying ? (
+          <div style={{ display: 'flex', gap: '3px' }}>
+            <div style={{ width: '3px', height: '14px', backgroundColor: 'black' }}></div>
+            <div style={{ width: '3px', height: '14px', backgroundColor: 'black' }}></div>
+          </div>
+        ) : '▶'}
       </button>
 
       {/* Bandeau défilant */}
