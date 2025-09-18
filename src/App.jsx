@@ -1,8 +1,9 @@
-import Vinyle_cup from './Vinyle_cup';
+import VinyleSync from './VinyleSync';
 
 function App() {
   return (
-    <Vinyle_cup />
+    <VinyleSync/>
+  
   );
 }
 
