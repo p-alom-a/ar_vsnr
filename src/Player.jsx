@@ -45,8 +45,9 @@ const Player = ({
         display: 'flex',
         alignItems: 'center',
         gap: '12px',
-        maxWidth: '400px',
+        maxWidth: '350px',
         width: 'fit-content',
+        minWidth: 'auto',
         transition: 'all 0.1s ease'
       }}
     >

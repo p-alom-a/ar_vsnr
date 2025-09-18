@@ -73,16 +73,20 @@ export default function VinyleSync() {
       setIsTargetVisible(true);
       setShowPlayer(true);
       
-      if (!audioReady) {
-        console.log("⚠️ audio pas encore débloqué (clic requis)");
-        return;
-      }
-      
-      // Démarrer l'audio automatiquement quand target trouvée
+      // Essayer de démarrer l'audio, ou débloquer automatiquement si besoin
       try {
+        if (!audioReady) {
+          // Essayer de débloquer l'audio automatiquement
+          const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+          }
+          setAudioReady(true);
+        }
         await audio.play();
       } catch (err) {
         console.warn("play() rejeté :", err);
+        // Si ça échoue, on laisse l'utilisateur utiliser le bouton
       }
     };
 
@@ -182,7 +186,7 @@ export default function VinyleSync() {
       <audio
         ref={audioRef}
         id="player-audio"
-        src="/frost.mp3"
+        src="https://p-alom-a.github.io/ar_vsnr/frost.mp3"
         preload="auto"
         playsInline
       />
