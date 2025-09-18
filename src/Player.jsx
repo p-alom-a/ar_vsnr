@@ -38,7 +38,7 @@ const Player = ({
       className={`player-container ${className}`}
       style={{
         backgroundColor: 'white',
-        border: '4px solid black',
+        border: '2px solid black',
         borderRadius: '35px',
         boxShadow: '8px 8px 0 0 black',
         padding: '16px',
@@ -126,7 +126,7 @@ const Player = ({
         onClick={onPlaylistClick}
         style={{
           backgroundColor: '#e5e5e5',
-          border: '3px solid black',
+          border: '2px solid black',
           borderRadius: '12px',
           padding: 'clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px)',
           cursor: 'pointer',
@@ -134,7 +134,7 @@ const Player = ({
           alignItems: 'center',
           gap: '6px',
           fontSize: 'clamp(12px, 3.5vw, 14px)',
-          fontWeight: 'bold',
+          
           color: 'black',
           boxShadow: 'none',
           transition: 'all 0.1s ease',
@@ -153,7 +153,7 @@ const Player = ({
           e.target.style.transform = 'translate(0, 0)';
         }}
       >
-        Ecouter<br/>en entier
+        Ecouter<br/>entièrement
        
       </button>
     </div>
