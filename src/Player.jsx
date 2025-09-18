@@ -136,7 +136,7 @@ const Player = ({
           fontSize: 'clamp(12px, 3.5vw, 14px)',
           fontWeight: 'bold',
           color: 'black',
-          boxShadow: '4px 4px 0 0 black',
+          boxShadow: 'none',
           transition: 'all 0.1s ease',
           outline: 'none',
           whiteSpace: 'normal',
@@ -144,25 +144,17 @@ const Player = ({
           lineHeight: '1.2'
         }}
         onMouseDown={(e) => {
-          e.target.style.transform = 'translate(2px, 2px)';
-          e.target.style.boxShadow = '2px 2px 0 0 black';
+          e.target.style.transform = 'translate(1px, 1px)';
         }}
         onMouseUp={(e) => {
           e.target.style.transform = 'translate(0, 0)';
-          e.target.style.boxShadow = '4px 4px 0 0 black';
         }}
         onMouseLeave={(e) => {
           e.target.style.transform = 'translate(0, 0)';
-          e.target.style.boxShadow = '4px 4px 0 0 black';
         }}
       >
         Ecouter<br/>en entier
-        <span style={{
-          fontSize: 'clamp(14px, 4vw, 16px)',
-          fontWeight: 'bold'
-        }}>
-          →
-        </span>
+       
       </button>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "aframe";
 import "mind-ar/dist/mindar-image-aframe.prod.js";
 import Player from './Player';
+import InstructionsModal from './InstructionsModal';
 
 export default function VinyleSync() {
   const audioRef = useRef(null);
@@ -12,6 +13,8 @@ export default function VinyleSync() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isTargetVisible, setIsTargetVisible] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(true);
+  const [arReady, setArReady] = useState(false);
 
   // État calculé : les animations doivent tourner SI audio joue ET target visible
   const shouldAnimate = isPlaying && isTargetVisible;
@@ -61,8 +64,10 @@ export default function VinyleSync() {
     }
   }, [shouldAnimate]);
 
-  // attache les listeners MindAR / audio
+  // attache les listeners MindAR / audio seulement quand AR est prêt
   useEffect(() => {
+    if (!arReady) return;
+
     const sceneEl = document.querySelector("a-scene");
     const targetEl = sceneEl?.querySelector("[mindar-image-target]");
     const audio = audioRef.current;
@@ -122,20 +127,22 @@ export default function VinyleSync() {
       audio.removeEventListener("play", onPlay);
       audio.removeEventListener("pause", onPause);
     };
-  }, [audioReady]);
+  }, [arReady, audioReady]);
 
   // Méthode recommandée 2024 : création d'AudioContext dans le user gesture
   const enableAudio = () => {
     try {
       // Créer l'AudioContext directement dans le user gesture (état "running")
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      
+
       // Vérifier l'état et résumer si nécessaire
       if (audioContext.state === 'suspended') {
         audioContext.resume();
       }
-      
+
       setAudioReady(true);
+      setShowInstructions(false);
+      setArReady(true);
       console.log("✅ Audio débloqué selon les standards 2024");
     } catch (err) {
       console.warn("Impossible de débloquer l'audio :", err);
@@ -162,24 +169,9 @@ export default function VinyleSync() {
 
   return (
     <>
-      {/* bouton pour débloquer l'audio si nécessaire */}
-      {!audioReady && (
-        <button
-          onClick={enableAudio}
-          style={{
-            position: "absolute",
-            top: 20,
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 2000,
-            padding: "10px 18px",
-            borderRadius: 10,
-            background: "#111",
-            color: "white",
-          }}
-        >
-          🎧 Activer l'audio
-        </button>
+      {/* Modale d'instructions neubrutalism */}
+      {showInstructions && (
+        <InstructionsModal onStartExperience={enableAudio} />
       )}
 
       {/* audio controlé via ref */}
@@ -208,14 +200,15 @@ export default function VinyleSync() {
         </div>
       )}
 
-      {/* ta scène A-Frame / MindAR */}
-      <a-scene
-        mindar-image="imageTargetSrc: https://p-alom-a.github.io/ar_vsnr/targets-cup.mind;"
-        color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights"
-        vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false"
-      >
+      {/* ta scène A-Frame / MindAR - seulement quand AR prêt */}
+      {arReady && (
+        <a-scene
+          mindar-image="imageTargetSrc: https://p-alom-a.github.io/ar_vsnr/targets-cup.mind;"
+          color-space="sRGB"
+          renderer="colorManagement: true, physicallyCorrectLights"
+          vr-mode-ui="enabled: false"
+          device-orientation-permission-ui="enabled: false"
+        >
         <a-assets>
           <a-asset-item
             id="vinyleModel"
@@ -249,7 +242,8 @@ export default function VinyleSync() {
             position="0 0 0.01"
           />
         </a-entity>
-      </a-scene>
+        </a-scene>
+      )}
     </>
   );
 }
