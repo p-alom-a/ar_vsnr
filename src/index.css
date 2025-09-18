@@ -217,12 +217,12 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   .modal-container {
-    margin: 0 25px;
+    margin: 20px 25px;
     max-width: 80%;
   }
 
   .instructions-modal {
-    padding: 25px 20px;
+    padding: 20px 18px;
   }
 
   .modal-title {
@@ -254,8 +254,8 @@ button:focus-visible {
   }
 
   .start-button {
-    padding: 16px 24px;
-    font-size: 1.1em;
+    padding: 14px 20px;
+    font-size: 1em;
   }
 }
 
