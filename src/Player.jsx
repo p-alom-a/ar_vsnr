@@ -139,7 +139,9 @@ const Player = ({
           boxShadow: '4px 4px 0 0 black',
           transition: 'all 0.1s ease',
           outline: 'none',
-          whiteSpace: 'nowrap'
+          whiteSpace: 'normal',
+          textAlign: 'center',
+          lineHeight: '1.2'
         }}
         onMouseDown={(e) => {
           e.target.style.transform = 'translate(2px, 2px)';
@@ -154,7 +156,7 @@ const Player = ({
           e.target.style.boxShadow = '4px 4px 0 0 black';
         }}
       >
-        Ecouter en entier
+        Ecouter<br/>en entier
         <span style={{
           fontSize: 'clamp(14px, 4vw, 16px)',
           fontWeight: 'bold'
