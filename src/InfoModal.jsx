@@ -5,15 +5,19 @@ export default function InfoModal({ isOpen, onClose }) {
 
   return (
     <div className="instructions-modal-overlay">
-      <div className="modal-container">
+      <div className="modal-container" style={{
+        marginTop: window.innerWidth <= 768 ? '80px' : '0',
+        marginLeft: window.innerWidth <= 768 ? '30px' : '20px',
+        marginRight: window.innerWidth <= 768 ? '30px' : '20px'
+      }}>
         <div className="instructions-modal" style={{ position: 'relative' }}>
           {/* Bouton croix en haut à gauche */}
           <button
             onClick={onClose}
             style={{
               position: 'absolute',
-              top: window.innerWidth <= 768 ? '-25px' : '-50px',
-              left: window.innerWidth <= 768 ? '-15px' : '-50px',
+              top: window.innerWidth <= 768 ? '-20px' : '-50px',
+              left: window.innerWidth <= 768 ? '-20px' : '-50px',
               width: window.innerWidth <= 768 ? '30px' : '40px',
               height: window.innerWidth <= 768 ? '30px' : '40px',
               borderRadius: '6px',
