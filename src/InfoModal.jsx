@@ -10,7 +10,11 @@ export default function InfoModal({ isOpen, onClose }) {
         marginLeft: window.innerWidth <= 768 ? '30px' : '20px',
         marginRight: window.innerWidth <= 768 ? '30px' : '20px'
       }}>
-        <div className="instructions-modal" style={{ position: 'relative' }}>
+        <div className="instructions-modal" style={{
+          position: 'relative',
+          maxHeight: window.innerWidth <= 768 ? '70vh' : 'none',
+          overflowY: window.innerWidth <= 768 ? 'auto' : 'visible'
+        }}>
           {/* Bouton croix en haut à gauche */}
           <button
             onClick={onClose}
