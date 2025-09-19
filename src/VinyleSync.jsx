@@ -3,6 +3,7 @@ import "aframe";
 import "mind-ar/dist/mindar-image-aframe.prod.js";
 import Player from './Player';
 import InstructionsModal from './InstructionsModal';
+import InfoModal from './InfoModal';
 
 export default function VinyleSync() {
   const audioRef = useRef(null);
@@ -15,6 +16,7 @@ export default function VinyleSync() {
   const [showPlayer, setShowPlayer] = useState(false);
   const [showInstructions, setShowInstructions] = useState(true);
   const [arReady, setArReady] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   // État calculé : les animations doivent tourner SI audio joue ET target visible
   const shouldAnimate = isPlaying && isTargetVisible;
@@ -169,6 +171,53 @@ export default function VinyleSync() {
 
   return (
     <>
+      {/* Bouton info en haut à droite */}
+      {showPlayer && (
+        <button
+          onClick={() => setShowInfoModal(true)}
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            width: '35px',
+            height: '35px',
+            borderRadius: '8px',
+            backgroundColor: '#ffffff',
+            border: '2px solid #000000',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            color: '#000000',
+            cursor: 'pointer',
+            zIndex: 10,
+            boxShadow: '6px 6px 0px #000000',
+            transition: 'all 0.1s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          onMouseDown={(e) => {
+            e.target.style.transform = 'translate(3px, 3px)';
+            e.target.style.boxShadow = '3px 3px 0px #000000';
+          }}
+          onMouseUp={(e) => {
+            e.target.style.transform = 'translate(0px, 0px)';
+            e.target.style.boxShadow = '6px 6px 0px #000000';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'translate(0px, 0px)';
+            e.target.style.boxShadow = '6px 6px 0px #000000';
+          }}
+        >
+          ?
+        </button>
+      )}
+
+      {/* Modale d'informations */}
+      <InfoModal
+        isOpen={showInfoModal}
+        onClose={() => setShowInfoModal(false)}
+      />
+
       {/* Modale d'instructions neubrutalism */}
       {showInstructions && (
         <InstructionsModal onStartExperience={enableAudio} />
