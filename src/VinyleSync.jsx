@@ -171,6 +171,17 @@ export default function VinyleSync() {
 
   return (
     <>
+      {/* Animation de scanning neubrutalism */}
+      {arReady && !isTargetVisible && (
+        <div className="custom-scanning-overlay">
+          <div className="scan-frame">
+            <div className="scan-line"></div>
+            <div className="corner-top-right"></div>
+            <div className="corner-bottom-left"></div>
+          </div>
+        </div>
+      )}
+
       {/* Bouton info en haut à droite */}
       {showPlayer && (
         <button
@@ -188,7 +199,7 @@ export default function VinyleSync() {
             fontWeight: 'bold',
             color: '#000000',
             cursor: 'pointer',
-            zIndex: 10,
+            zIndex: 10000,
             boxShadow: '6px 6px 0px #000000',
             transition: 'all 0.1s ease',
             display: 'flex',
@@ -239,7 +250,7 @@ export default function VinyleSync() {
           bottom: 30,
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 2000,
+          zIndex: 10000,
         }}>
           <Player
             isPlaying={isPlaying}
