@@ -10,18 +10,19 @@ export default function InstructionsModal({ onStartExperience }) {
         <div className="modal-content">
           <div className="instruction-item">
             <div className="instruction-number">1</div>
-            <p>Augmentez le volume de votre appareil</p>
+            <p>Augmentez le volume</p>
           </div>
 
           <div className="instruction-item">
             <div className="instruction-number">2</div>
-            <p>Pointez votre caméra vers le logo du gobelet</p>
+            <p>Autorisez l'accès à la caméra</p>
           </div>
 
           <div className="instruction-item">
             <div className="instruction-number">3</div>
-            <p>Profitez de l'expérience musicale immersive</p>
+            <p>Pointez votre caméra vers le logo du gobelet</p>
           </div>
+        </div>
         </div>
 
         <button
@@ -30,7 +31,6 @@ export default function InstructionsModal({ onStartExperience }) {
         >
           C'est parti !
         </button>
-        </div>
       </div>
     </div>
   );
