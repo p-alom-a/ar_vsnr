@@ -9,7 +9,7 @@ export default function InfoModal({ isOpen, onClose }) {
       overflowY: window.innerWidth <= 768 ? 'auto' : 'visible'
     }}>
       <div className="modal-container" style={{
-        marginTop: window.innerWidth <= 768 ? '80px' : '0',
+        marginTop: window.innerWidth <= 768 ? '120px' : '0',
         marginLeft: window.innerWidth <= 768 ? '30px' : '20px',
         marginRight: window.innerWidth <= 768 ? '30px' : '20px',
         marginBottom: window.innerWidth <= 768 ? '40px' : '0'
