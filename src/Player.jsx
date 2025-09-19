@@ -41,13 +41,14 @@ const Player = ({
         border: '2px solid black',
         borderRadius: '35px',
         boxShadow: '8px 8px 0 0 black',
-        padding: '16px',
+        padding: '8px',
         display: 'flex',
         alignItems: 'center',
-        gap: '12px',
-        maxWidth: '300px',
+        gap: '8px',
+        maxWidth: '280px',
         width: 'fit-content',
         minWidth: 'auto',
+        height: '3em',
         transition: 'all 0.1s ease'
       }}
     >
@@ -58,18 +59,18 @@ const Player = ({
         onMouseUp={() => setIsPlayPressed(false)}
         onMouseLeave={() => setIsPlayPressed(false)}
         style={{
-          width: 'clamp(50px, 15vw, 60px)',
-          height: 'clamp(50px, 15vw, 60px)',
+          width: '44px',
+          height: '44px',
           borderRadius: '50%',
           backgroundColor: isPlaying ? '#FFB6C1' : '#98D4F7',
-          border: '3px solid black',
-          boxShadow: isPlayPressed ? '2px 2px 0 0 black' : '6px 6px 0 0 black',
-          transform: isPlayPressed ? 'translate(2px, 2px)' : 'translate(0, 0)',
+          border: '2px solid black',
+          boxShadow: isPlayPressed ? '1px 1px 0 0 black' : '3px 3px 0 0 black',
+          transform: isPlayPressed ? 'translate(1px, 1px)' : 'translate(0, 0)',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 'clamp(18px, 5vw, 24px)',
+          fontSize: '18px',
           color: 'black',
           fontWeight: 'bold',
           transition: 'all 0.1s ease',
@@ -77,9 +78,9 @@ const Player = ({
         }}
       >
 {isPlaying ? (
-          <div style={{ display: 'flex', gap: '3px' }}>
-            <div style={{ width: '3px', height: '14px', backgroundColor: 'black' }}></div>
-            <div style={{ width: '3px', height: '14px', backgroundColor: 'black' }}></div>
+          <div style={{ display: 'flex', gap: '2px' }}>
+            <div style={{ width: '2px', height: '10px', backgroundColor: 'black' }}></div>
+            <div style={{ width: '2px', height: '10px', backgroundColor: 'black' }}></div>
           </div>
         ) : '▶'}
       </button>
@@ -89,7 +90,7 @@ const Player = ({
         flex: 1,
         overflow: 'hidden',
         position: 'relative',
-        height: '40px',
+        height: '24px',
         display: 'flex',
         alignItems: 'center'
       }}>
@@ -103,18 +104,18 @@ const Player = ({
           }}
         >
           <span style={{
-            fontSize: 'clamp(12px, 3.5vw, 14px)',
+            fontSize: '11px',
             fontWeight: 'bold',
             color: 'black',
-            paddingRight: '50px'
+            paddingRight: '30px'
           }}>
             Dinis, Jalam88 • frost
           </span>
           <span style={{
-            fontSize: 'clamp(12px, 3.5vw, 14px)',
+            fontSize: '11px',
             fontWeight: 'bold',
             color: 'black',
-            paddingRight: '50px'
+            paddingRight: '30px'
           }}>
             Dinis, Jalam88 • frost
           </span>
@@ -126,22 +127,21 @@ const Player = ({
         onClick={onPlaylistClick}
         style={{
           backgroundColor: '#e5e5e5',
-          border: '2px solid black',
-          borderRadius: '12px',
-          padding: 'clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px)',
+          border: '1px solid black',
+          borderRadius: '8px',
+          padding: '4px 8px',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
-          fontSize: 'clamp(12px, 3.5vw, 14px)',
-          
+          gap: '4px',
+          fontSize: '10px',
           color: 'black',
           boxShadow: 'none',
           transition: 'all 0.1s ease',
           outline: 'none',
           whiteSpace: 'normal',
           textAlign: 'center',
-          lineHeight: '1.2'
+          lineHeight: '1.1'
         }}
         onMouseDown={(e) => {
           e.target.style.transform = 'translate(1px, 1px)';
