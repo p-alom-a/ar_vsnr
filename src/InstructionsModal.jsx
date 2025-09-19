@@ -4,7 +4,7 @@ export default function InstructionsModal({ onStartExperience }) {
   return (
     <div className="instructions-modal-overlay">
       <div className="modal-container">
-        <h2 className="modal-title"><span className="modal-title-highlight">Ce goblet n'est pas comme les autres,</span> <br/> en plus de contenir une délicieuse boisson, il cache une experience en réalité augmentée.</h2>
+        <h2 className="modal-title"><span className="modal-title-highlight">Scanne le logo sur gobelet,</span> <br/> en plus de contenir une délicieuse boisson, il cache une experience en réalité augmentée.</h2>
 
         <div className="instructions-modal">
         <div className="modal-content">
@@ -15,13 +15,9 @@ export default function InstructionsModal({ onStartExperience }) {
 
           <div className="instruction-item">
             <div className="instruction-number">2</div>
-            <p>Autorisez l'accès à la caméra</p>
+            <p>Autorisez l'accès à la caméra et pointez vers le logo du gobelet</p>
           </div>
 
-          <div className="instruction-item">
-            <div className="instruction-number">3</div>
-            <p>Pointez votre caméra vers le logo du gobelet</p>
-          </div>
         </div>
         </div>
 
