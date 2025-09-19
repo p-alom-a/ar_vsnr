@@ -128,7 +128,7 @@ const Player = ({
         style={{
           backgroundColor: '#e5e5e5',
           border: '1px solid black',
-          borderRadius: '8px',
+          borderRadius: '12px',
           padding: '4px 8px',
           cursor: 'pointer',
           display: 'flex',
@@ -141,7 +141,8 @@ const Player = ({
           outline: 'none',
           whiteSpace: 'normal',
           textAlign: 'center',
-          lineHeight: '1.1'
+          lineHeight: '1.1',
+          marginRight: '4px'
         }}
         onMouseDown={(e) => {
           e.target.style.transform = 'translate(1px, 1px)';
