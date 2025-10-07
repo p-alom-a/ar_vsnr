@@ -85,7 +85,6 @@ export default function InfoModal({ isOpen, onClose }) {
               Si le projet vous tente pour dynamiser votre communication, ou si vous avez envie d’imaginer quelque chose d’encore plus fou, on peut en discuter !
               </p>
 
-
               <p style={{
                 marginBottom: '15px',
                 textAlign: 'right',
