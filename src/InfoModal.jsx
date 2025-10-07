@@ -78,16 +78,13 @@ export default function InfoModal({ isOpen, onClose }) {
               </p>
 
               <p style={{ marginBottom: '15px' }}>
-                Je suis développeuse (et addict à vos americanos). J'ai créé cette petite démo AR pour le Café Visionnaire - juste pour le fun et voir ce que ça donne !
+                Je suis développeuse (et fan de vos americanos!). J’ai créé cette expérience en pensant que la réalité augmentée pouvait être un super pont entre café et musique.
               </p>
 
               <p style={{ marginBottom: '15px' }}>
-                L'idée c'est d'explorer comment mixer tech et café. Si ça vous branche pour booster votre comm ou partir sur un projet plus dingue, on peut en parler. Sinon, ça me va totalement de le garder en projet perso - j'aimerais juste votre feu vert pour le publier.
+              Si le projet vous tente pour dynamiser votre communication, ou si vous avez envie d’imaginer quelque chose d’encore plus fou, on peut en discuter !
               </p>
 
-              <p style={{ marginBottom: '15px' }}>
-                <strong>Bref, merci pour l'inspi et les excellents cafés ! ☕</strong>
-              </p>
 
               <p style={{
                 marginBottom: '15px',
